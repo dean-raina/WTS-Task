@@ -1,0 +1,41 @@
+﻿@{
+    @model List<WTS_Task.Models.EmployeeWithHours>
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">WTS Employee Task</h1>
+
+    <table class="table">
+            <tr>
+                <th>
+                    @nameof(WTS_Task.Models.EmployeeWithHours.EmployeeId)
+                </th>
+                <th>
+                    Employee Name
+                </th>
+                <th>
+                    @nameof(WTS_Task.Models.EmployeeWithHours.MonthlyHours)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                string fullName = item.FirstName + " " + item.Surname;
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeId)
+                    </td>
+                    <td>
+                        @fullName
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MonthlyHours)
+                    </td>
+                </tr>
+            }
+
+        </table>
+</div>
+
